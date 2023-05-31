@@ -17,6 +17,9 @@ for i in df.columns:
         df[i] = df[i].astype(float)
     except: 
         continue
+df['Number of Children'] = df['Number of Children'].astype(int)
+
+column = st.selectbox('Selecte column you want to compare with Income' ,[ i for i in df.columns if i != 'Income'], 1 )
 
 # fucntion to plot barplot plotly 
 def plot(x,y,column):
@@ -80,8 +83,7 @@ def subplot(df , column):
                   template = 'plotly_dark')
     st.plotly_chart(fig)
     
-def Compare_columns_with_income(df):
-    column = st.selectbox('Selecte column you want to compare with Income' ,[ i for i in df.columns if i != 'Income'], 1 )
+def compare_columns_with_income(df):
     compare = df.groupby(column).sum()
     columns_to_drop = [i for i in compare.columns if compare[i].dtype != 'float64']
     compare = compare.drop(columns_to_drop , axis = 1 ).reset_index()
@@ -90,5 +92,60 @@ def Compare_columns_with_income(df):
     subplot(df , column)
     st.dataframe(df[column].value_counts())
 
-Compare_columns_with_income(df)
-st.checkbox('choose feature',)
+
+compare_columns_with_income(df)
+
+# st.checkbox('choose feature',)
+# mode = ['lines', 'markers', 'text']
+# groupby_list = [column]
+
+# def compare_2_columns_with_income(df):
+
+
+#     trace1 = go.Bar(
+#         x = df.Income,
+#         y = df.Age,
+#         mode = 'lines',
+#         marker = dict(color = colors[3]),
+#         text = df.Education 
+
+#     )
+
+#     # trace2 = go.Bar(
+#     #     x = df.Income,
+#     #     y = df['Number of Children'],
+#     #     marker = dict(color =colors[5]),
+#     #     text = df.Education)
+    
+
+
+
+
+# def compare_multi_column(df):
+#     layout = dict(title = 'age and Number of Children vs Income', xaxis = dict(title = 'Income' , ticklen = 5))
+#     list_to_plot = []
+#     fig = dict(layout = layout)
+
+#     for k , i in enumerate([ j for j in df.columns if j != 'Income' and j != column and df[j].dtype != 'float64' ]):
+#         checkbox = st.checkbox(i)
+#         if checkbox and len(groupby_list) < 5:
+#             variable_name = f"{i}"
+#             locals()[variable_name] = go.Bar(
+#                 x = df[i],
+#                 y = df.Income,
+#                 name = f'{i}',
+#                 marker = dict(color = colors[k],
+#                               line = dict(color=colors[k] ,width = 1.5)))
+#             list_to_plot.append(locals()[variable_name])
+#             fig.update({'data' : list_to_plot  })
+
+        
+
+#     st.plotly_chart(fig)
+
+#     st.text(groupby_list)
+
+
+# # compare_2_columns_with_income(df)
+
+# compare_multi_column(df)
