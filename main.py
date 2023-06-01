@@ -87,7 +87,7 @@ def compare_columns_with_income(df):
     compare = df.groupby(column).sum()
     columns_to_drop = [i for i in compare.columns if compare[i].dtype != 'float64']
     compare = compare.drop(columns_to_drop , axis = 1 ).reset_index()
-    st.dataframe(compare)
+    st.dataframe(compare[column,"Income"])
     plot(compare[column],compare['Income'],column)
     subplot(df , column)
     st.dataframe(df[column].value_counts())
