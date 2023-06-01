@@ -1,6 +1,7 @@
 this is simple project EDA Streamlit 
 
 dataset founder : sujithmandala
+
 dataset name : credit-score-classification-dataset
 
 streamlit project link: https://abdullahhg-simple-eda-streamlit-main-l70c6r.streamlit.app/
