@@ -39,7 +39,7 @@ def plot(x,y,column):
 
 def subplot(df , column):
 
-    fig = make_subplots(rows=1, cols=2, subplot_titles=('Countplot', 'Bar'), specs=[[{"type": "xy"}, {'type': 'domain'}]])
+    fig = make_subplots(rows=1, cols=2, subplot_titles=('Countplot', 'percentage'), specs=[[{"type": "xy"}, {'type': 'domain'}]])
 
     # Bar plot
     fig.add_trace(
