@@ -50,7 +50,7 @@ def subplot(df , column):
             showlegend=False,
             marker=dict(
                 color=colors[:len(df[column].value_counts())],  
-                line=dict(color='black', width=2)
+                line=dict(color='black', width=0)
             )
         ),
         row=1,
