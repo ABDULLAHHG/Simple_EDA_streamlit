@@ -11,7 +11,9 @@ df = pd.read_csv('Credit Score Classification Dataset.csv')
 # Color for Pie plot and Bar plot 
 colors = ['#7c90db', '#92a8d1', '#a5c4e1', '#f7cac9', '#fcbad3', '#e05b6f', '#f8b195', '#f5b971', '#f9c74f', '#ee6c4d', '#c94c4c', '#589a8e', '#a381b5', '#f8961e', '#4f5d75', '#6b5b95', '#9b59b6', '#b5e7a0', '#a2b9bc', '#b2ad7f', '#679436', '#878f99', '#c7b8ea', '#6f9fd8', '#d64161', '#f3722c', '#f9a828', '#ff7b25', '#7f7f7f']
     
-
+st.header('Simple EDA plotly')
+st.subheader('')
+st.subheader('Compare with Income')
 for i in df.columns:
     try :       
         df[i] = df[i].astype(float)
